@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Associação dos Pequenos Produtores - Lage do Carrapicho</title>
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --primary-brown: #5C3E21;
+      --secondary-green: #7B9B3B;
+      --light-green: #eef4e5;
+      --bg-light: #f9f8f6;
+      --text-color: #333333;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-light);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    /* Header & Nav */
+    header {
+      background-color: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-area img {
+      height: 60px;
+      width: auto;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-text h1 {
+      font-size: 1.1rem;
+      color: var(--primary-brown);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .logo-text span {
+      font-size: 0.85rem;
+      color: var(--secondary-green);
+      font-weight: 600;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--secondary-green);
+    }
+
+    /* Hero Banner */
+    .hero {
+      background: linear-gradient(rgba(92, 62, 33, 0.75), rgba(123, 155, 59, 0.75)), url('https://images.unsplash.com/photo-1500595046743-cd271d694d30?auto=format&fit=crop&w=1350&q=80') center/cover;
+      color: var(--white);
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--secondary-green);
+      color: var(--white);
+      padding: 0.8rem 1.8rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #65822f;
+    }
+
+    /* General Sections */
+    section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--primary-brown);
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background-color: var(--secondary-green);
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
+    }
+
+    /* História */
+    .history-content {
+      background-color: var(--white);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      border-left: 5px solid var(--secondary-green);
+    }
+
+    /* Torneio Leiteiro */
+    .torneio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      text-align: center;
+      border-top: 4px solid var(--primary-brown);
+    }
+
+    .card i {
+      font-size: 2.5rem;
+      color: var(--secondary-green);
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      color: var(--primary-brown);
+      margin-bottom: 1rem;
+    }
+
+    .card img {
+     height: 3.5rem;    
+    }
+
+    /* Regulamento PDF Box com Visualizador */
+    .pdf-section {
+      background-color: var(--light-green);
+      border-radius: 12px;
+      padding: 3rem 2rem;
+    }
+
+    .pdf-container {
+      background: var(--white);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      max-width: 900px; /* Mais largo para o visualizador */
+      margin: 0 auto;
+    }
+
+    .pdf-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #eee;
+    }
+
+    .pdf-header-text {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pdf-header-text i {
+      font-size: 2rem;
+      color: var(--primary-brown);
+    }
+
+    .pdf-header-text h3 {
+      color: var(--primary-brown);
+    }
+
+    .pdf-viewer {
+      width: 100%;
+      height: 600px; /* Altura do visualizador */
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--primary-brown);
+      color: var(--white);
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+      .pdf-header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+      .pdf-viewer {
+        height: 400px; /* Altura menor em celulares */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="logo-area">
+        <img src="logo.png" alt="Logo Associação Lage do Carrapicho">
+        <div class="logo-text">
+          <h1>ASSOCIAÇÃO DOS PEQUENOS PRODUTORES</h1>
+          <span>LAGE DO CARRAPICHO - ALAGOINHA-PE</span>
+        </div>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#historia">Nossa História</a></li>
+          <li><a href="#torneio">Torneio Leiteiro</a></li>
+          <li><a href="#regulamento">Regulamento</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Banner -->
+  <div class="hero">
+    <h2>Valorizando a Pecuária Leiteira de Alagoinha-PE</h2>
+    <p>União, força e tradição na produção de leite bovino e caprino da nossa região.</p>
+    <a href="#torneio" class="btn">Saiba Mais Sobre o Torneio</a>
+  </div>
+
+  <!-- História -->
+  <section id="historia">
+    <h2 class="section-title">Nossa História</h2>
+    <div class="history-content">
+      <p>Alagoinha é um município do Agreste do estado de Pernambuco, distante 225,5 km de Recife, se destacou na última década pela produção do leite caprino na comunidade de Lage do Carrapicho, aproximadamente 20 agricultores comercializam leite de cabra para o programa de compras governamentais. A comunidade tem cerca de 60 famílias, conta com duas associações e uma cooperativa, a Associação dos pequenos produtores do sítio Lage do Carrapicho (APPLAC), fundada em 1991, há 16 anos realiza o Torneio Leiteiro de Caprinos, mais conhecido na região como <strong>“Festa das cabras”</strong>. Este considerado em 2016 o maior torneio leiteiro de caprinos do estado.</p>
+      <br>
+      <p>A caprinocultura leiteira na associação se iniciou com um projeto no ano de 2002 e beneficiou 20 famílias, com vinte matrizes e dois reprodutores, de início o objetivo era garantir a segurança alimentar, principalmente das crianças da comunidade, que teriam um leite rico do ponto de vista nutricional vindo de um animal de pequeno porte que poderia ser criado mesmo nas menores propriedades. A atividade ganhou força com a criação do Torneio Leiteiro em 2007 e se consolidou a partir do início da venda do leite para o programa PAA-Leite no ano de 2013. O último projeto que beneficia os caprinocultores foi através do PE Produz, com a compra de mais um tanque de refrigeração de leite e a instalação da usina de geração de energia fotovoltaica na associação.</p>
+      <br>
+      <p>Uma pesquisa¹ mostrou que a venda do leite caprino junto à venda de animais representa uma importante fonte de renda para as famílias, apresentando indícios fortes de viabilidade nos anos estudados. Que os produtores têm aptidão e observou-se o comprometimento, embasado nos princípios do associativismo e cooperativismo praticados na comunidade Lage do Carrapicho.</p>
+    </div>
+  </section>
+
+  <!-- Divulgação do Torneio Leiteiro -->
+  <section id="torneio">
+    <h2 class="section-title">XVIII Torneio Leiteiro de Caprinos de Lage do Carrapicho 
+      <br>
+        II Torneio Leiteiro de Vacas dos Pequeos Produtores de Alagoinha    
+    </h2>
+    <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem;">Venha prestigiar e participar da nossa tradicional competição! Um momento de celebração, troca de conhecimentos e premiação das melhores produções leiteiras de bovinos e caprinos.</p>
+    
+    <div class="torneio-grid">
+      <div class="card">
+        <img src="vacaEcabra.png">
+        <h3>Categorias Bovinas e Caprinas</h3>
+        <p>Premiações para as maiores produções diárias nas modalidades vaca e cabra leiteira.</p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-calendar-days"></i>
+        <h3>Data e Local</h3>
+         <p><strong>Data:</strong> 02 a 06 de setembro de 2026<br>
+         <p><strong>Local:</strong> Campo do Madureira, Lage do Carrapicho<br><strong>Alagoinha - PE</strong></p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-trophy"></i>
+        <h3>Premiações</h3>
+        <p>Troféus e premiações em dinheiro para os primeiros colocados de cada categoria.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção do Regulamento (Visualizador + Download do PDF) -->
+  <section id="regulamento" class="pdf-section">
+    <h2 class="section-title">Plano de Trabalho</h2>
+    
+    <div class="pdf-container">
+      <div class="pdf-header">
+        <div class="pdf-header-text">
+          <i class="fa-solid fa-file-pdf"></i>
+          <div>
+            <h3>Documentação Oficial</h3>
+            <p style="font-size: 0.9rem; color: #666;">Leia abaixo ou faça o download do documento.</p>
+          </div>
+        </div>
+        <!-- Botão de Download -->
+        <!-- Atualize o href com o caminho do seu arquivo PDF -->
+        <a href="regulamento-torneio.pdf" download class="btn">
+          <i class="fa-solid fa-download"></i> Baixar PDF
+        </a>
+      </div>
+
+      <!-- Visualizador de PDF Embutido -->
+      <!-- O atributo 'src' deve apontar para o seu arquivo PDF -->
+      <!-- O '#' no final do caminho pode ser usado para forçar a visualização embutida em alguns navegadores antigos, mas não é estritamente necessário -->
+      <iframe src="regulamento-torneio.pdf#view=FitH" class="pdf-viewer" title="Visualizador do Regulamento do Torneio">
+        <p>Seu navegador não suporta a visualização de PDFs embutidos. 
+           <a href="regulamento-torneio.pdf">Clique aqui para baixar o arquivo.</a>
+        </p>
+      </iframe>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Associação dos Pequenos Produtores - Lage do Carrapicho. Alagoinha - PE.</p>
+  </footer>
+
+</body>
+</html>
